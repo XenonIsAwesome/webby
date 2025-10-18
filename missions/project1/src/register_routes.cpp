@@ -2,12 +2,12 @@
 #include <webby/swagger/SwaggerGenerator.h>
 #include <iostream>
 
-using namespace webby::swagger;
+namespace swg = webby::swagger;
 
-[[maybe_unused]] static RegisterEndpoint _register_project1([](httplib::Server& svr) {
+[[maybe_unused]] static webby::RegisterEndpoint _register_project1([](httplib::Server& svr) {
     DECLARE_ENDPOINT(svr, Post, "/api/missions/project1/",
-        EndpointMetadata("")
-            .add_parameter("name", ParameterLocation::URL_QUERY, "string", false)
+        swg::EndpointMetadata("")
+            .add_parameter("name", swg::ParameterLocation::URL_QUERY, "string", false)
             .add_response(httplib::OK_200, "Successful request"),
         [](const httplib::Request &req, httplib::Response &res) {
             res.status = httplib::OK_200;

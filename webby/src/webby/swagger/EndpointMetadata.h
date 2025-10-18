@@ -57,7 +57,7 @@ namespace webby::swagger {
          * @param parameters A vector of parameter metadata
          * @param responses A map of http status codes, to response metadata
          */
-        explicit EndpointMetadata(std::string summary = "",
+        EndpointMetadata(std::string summary = "",
                          std::vector<Parameter> parameters = {},
                          std::map<size_t, Response> responses = {}):
         summary(std::move(summary)),

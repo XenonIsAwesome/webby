@@ -6,14 +6,14 @@
 #include <webby/utils/web_utils.h>
 #include <webby/routes.hpp>
 
-using namespace webby::swagger;
+namespace swg = webby::swagger;
 
 int main() {
-    auto registry = EndpointRegistry::getInstance();
+    auto registry = webby::EndpointRegistry::getInstance();
 
-    [[maybe_unused]] static RegisterEndpoint _register_main([](httplib::Server& svr) {
+    [[maybe_unused]] static webby::RegisterEndpoint _register_main([](httplib::Server& svr) {
         DECLARE_ENDPOINT(
-            svr, Get, "/", EndpointMetadata("System Status")
+            svr, Get, "/", swg::EndpointMetadata("System Status")
                             .add_response(httplib::OK_200, "OK"),
             [](const httplib::Request &req, httplib::Response &res) {
                 res.status = httplib::OK_200;
