@@ -1,0 +1,6 @@
+set(EXAMPLE_LIB_NAME ${PROJECT_NAME}-project2)
+
+file(GLOB_RECURSE LIB_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+
+add_library(${EXAMPLE_LIB_NAME} ${LIB_SOURCES})
+target_link_libraries(${EXAMPLE_LIB_NAME} PRIVATE ${PROJECT_NAME}-lib)
